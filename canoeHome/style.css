@@ -60,7 +60,6 @@ body {
 
     overflow-y: auto; /* allows vertical scroll */
     -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
-
 }
 .off-screen-menu li {
     list-style: none;
