@@ -7,73 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-left">
-            <i class="search-icon highlight"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#a2a2a2"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/></svg></i>
-        </div>
-        <a href="../canoeHome/index.html" class="nav-logo"><img src="../canoeHome/punLogo.svg" alt="Punahou Logo"></a>
-        <div class="nav-right">
-            <div class="ham-menu highlight">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
     <!-- hero -->
     <header class="hero">
         <div class="hero-content">
-            <h1>CANOE PLANTS</h1>
+            <h1>KALO</h1>
             <span></span>
-            <p>Learn more about the canoe plants that the Native Hawaiians relied on with interactive resources.</p>
+            <p>The staple of the Native Hawaiian diet. It is still grown all across the islands.</p>
         </div>
     </header>
-    <!-- grid -->
-    <div class="grid-container">
-        <a href="#" class="box box-1" style="grid-area: box-1;">
-            <div class="banner">
-                <div class="banner-title">Kalo</div>
-                <div class="banner-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                <img src="./menuIcon.svg" alt="info" class="banner-icon">
-            </div>
-        </a>
-        <a href="#" class="box box-2" style="grid-area: box-2;">
-            <div class="banner">
-                <div class="banner-title">Ulu</div>
-                <div class="banner-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                <img src="./menuIcon.svg" alt="info" class="banner-icon">
-            </div>
-        </a>
-        <a href="#" class="box box-3" style="grid-area: box-3;">
-            <div class="banner">
-                <div class="banner-title">Noni</div>
-                <div class="banner-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                <img src="./menuIcon.svg" alt="info" class="banner-icon">
-            </div>
-        </a>
-        <a href="#" class="box box-4" style="grid-area: box-4;">
-            <div class="banner">
-                <div class="banner-title">Niu</div>
-                <div class="banner-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                <img src="./menuIcon.svg" alt="info" class="banner-icon">
-            </div>
-        </a>
-        <a href="#" class="box box-5" style="grid-area: box-5;">
-            <div class="banner">
-                <div class="banner-title">Ko</div>
-                <div class="banner-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-                <img src="./menuIcon.svg" alt="info" class="banner-icon">
-            </div>
-        </a>
-    </div>
-
     <!-- side menu -->
     <div class="off-screen-menu">
         <ul class="menu">
             <li class="dropdown">
                 <a href="#">Plants</a>
                 <ul class="dropdown-menu">
-                    <li><a href="./index.html">Explore</a></li>
+                    <li><a href="#">Explore</a></li>
                     <li><a href="#">Kalo</a></li>
                     <li><a href="#">Ulu</a></li>
                     <li><a href="#">Noni</a></li>
@@ -102,6 +50,21 @@
         </form>
         <ul id="search-results"></ul>
     </div>
+    <!-- navbar -->
+    <nav>
+        <!-- hamburger menu -->
+        <div class="nav-left">
+            <i class="search-icon highlight"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#a2a2a2"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/></svg></i>
+        </div>
+        <a href="#" class="nav-logo"><img src="punLogo.svg" alt="Punahou Logo"></a>
+        <div class="nav-right">
+            <div class="ham-menu highlight">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
     <script>
         const hamMenu = document.querySelector('.ham-menu');
