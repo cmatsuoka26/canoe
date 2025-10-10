@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 70vh; 
-    background: url("kalo.jpg") no-repeat center center/cover;
+    background: url("uluBanner.jpg") no-repeat center center/cover;
     justify-content: center;
     align-items: center;
     max-height: 400px;

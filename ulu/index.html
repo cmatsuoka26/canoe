@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canoe Planter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>ULU</h1>
+            <span></span>
+            <p>A starchy fruit loved by the Native Hawaiians. It grows on trees across the islands.</p>
+        </div>
+    </header>
+    <!-- text -->
+    <div class="paragraph">
+        <h2>Ulu Overview</h2>
+        <p>
+            ‘Ulu, or breadfruit (Artocarpus altilis), is another highly important crop in Native Hawaiian culture, valued for its productivity, versatility, and cultural meaning. Introduced by Polynesian voyagers, ‘ulu became a key staple in the traditional Hawaiian diet due to its ability to produce large, starchy fruits that could feed many people. A single tree can yield hundreds of fruits in a year, making it a symbol of abundance and sustainability. Unlike annual crops, ‘ulu is a perennial tree that can live for decades or even centuries, reflecting the Hawaiian emphasis on long-term stewardship of the land.
+        </p> 
+        <h2>Agriculture and use</h2>
+        <p>
+            Native Hawaiians cultivated ‘ulu in both coastal and upland areas, often in mala (dryland gardens) alongside other important canoe plants like mai‘a (banana) and kalo. The tree required relatively little maintenance once established, and its deep roots helped stabilize soil and conserve moisture. The fruit was usually baked, roasted, or cooked in the imu (earth oven), and could be eaten like poi or cooked into stews. Its flesh is rich in carbohydrates and could be preserved by fermenting and storing it in underground pits—a valuable technique that provided food security during droughts or famine. Even the wood of the ‘ulu tree was used to make tools, drums, surfboards, and canoes, showing the plant’s importance beyond food.
+        </p>   
+        <h2>Ulu and culture</h2>
+        <p>
+            Culturally, ‘ulu represented growth, resilience, and nourishment. In some Hawaiian traditions, the god Kū transformed himself into an ‘ulu tree to feed his family during a time of famine, demonstrating the plant’s role as a life-giver. Communities would gather to harvest and share ‘ulu, reinforcing values such as laulima (working together) and lokomaikaʻi (generosity). The practice of planting an ‘ulu tree when a child was born symbolized care for future generations and a commitment to providing for the community.
+        </p> 
+    </div>
+    <!-- side menu -->
+    <div class="off-screen-menu">
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="#">Plants</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../plants/index.html">Explore</a></li>
+                    <li><a href="#">Kalo</a></li>
+                    <li><a href="#">Ulu</a></li>
+                    <li><a href="#">Noni</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Coconut?scrlybrkr=7be9e41a">Niu</a></li>
+                    <li><a href="#">Kō</a></li>
+                </ul>
+            </li>
+            <!-- dropdown on click -->
+            <li class="dropdown">
+                <a href="#">About</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Team Members</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- search menu -->
+    <div class="off-screen-search">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search plants..." autocomplete="off">
+        </form>
+        <ul id="search-results"></ul>
+    </div>
+    <!-- navbar -->
+    <nav>
+        <!-- hamburger menu -->
+        <div class="nav-left">
+            <i class="search-icon highlight"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#a2a2a2"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/></svg></i>
+        </div>
+        <a href="../canoeHome/index.html" class="nav-logo"><img src="../canoeHome/punLogo.svg" alt="Punahou Logo"></a>
+        <div class="nav-right">
+            <div class="ham-menu highlight">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+
+        hamMenu.addEventListener('click', () => {
+            hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+            offScreenSearch.classList.remove('active');
+        })
+
+
+        const searchIcon = document.querySelector('.search-icon');
+        const offScreenSearch = document.querySelector('.off-screen-search');
+
+        searchIcon.addEventListener('click', () => {
+            searchIcon.classList.toggle('active');
+            offScreenSearch.classList.toggle('active');
+            hamMenu.classList.remove('active');
+            offScreenMenu.classList.remove('active');
+        })
+
+        let dataset = [];
+
+        // Load JSON on page load
+        fetch('plants.json')
+            .then(response => response.json())
+            .then(data => {
+                dataset = data;
+            });
+
+        const searchInput = document.getElementById('search-input');
+        const resultsList = document.getElementById('search-results');
+
+        // Listen for typing
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            resultsList.innerHTML = ""; // clear old results
+
+            if (query.length > 0) {
+                const filtered = dataset.filter(item =>
+                    item.name.toLowerCase().includes(query)
+                );
+
+                filtered.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.url;
+                    a.textContent = item.name;
+                    li.appendChild(a);
+                    resultsList.appendChild(li);
+                });
+            }
+        });       
+
+    
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+
+                if (e.target.closest('dropdown-menu')) {
+                    return;
+                }
+
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+                dropdown.classList.toggle('open');
+                dropdownMenu.classList.toggle('open');
+            });
+        });
+
+        const submenuLinks = document.querySelectorAll('.dropdown-menu a');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+            });
+        });
+            
+    </script>
+</body>
+</html>
