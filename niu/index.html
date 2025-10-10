@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canoe Planter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>NIU</h1>
+            <span></span>
+            <p>A versatile tree that was valued throughout the islands.</p>
+        </div>
+    </header>
+    <!-- text -->
+    <div class="paragraph">
+        <h2>Niu Overview</h2>
+        <p>
+            Niu, or coconut (Cocos nucifera), was one of the most valuable and multifunctional plants in Native Hawaiian life. Brought by Polynesian voyagers as a canoe plant, the coconut tree was highly prized because every part of it could be used. Its ability to grow in sandy coastal areas made it especially important in places where other crops were difficult to cultivate. Tall, resilient, and long-lived, niu symbolized life, endurance, and connection to the sea. It was often planted near shorelines, marking fishing areas, homes, and community spaces.
+        </p> 
+        <h2>Agriculture and use</h2>
+        <p>
+            The uses of niu were incredibly diverse. The fruit provided food and drink—the coconut water was refreshing and hydrating, while the flesh (copra) could be eaten raw, grated into dishes, or pressed to extract rich oil. The husk fibers (pulu niu) were twisted into cordage or used as stuffing. The hard shell was carved into utensils, bowls, and tools. The leaves were woven into baskets, mats, thatch for houses, and even used to make fans or hats. The trunk could be used as house posts or for carving. In a time before metal and plastic, the coconut tree served as a natural toolkit.
+        </p>   
+        <h2>Other uses</h2>
+        <p>
+            Niu also played an important role in medicine and ceremony. Coconut oil was used to moisturize skin, treat wounds, protect hair, and as a base for medicinal mixtures. It was also used to anoint chiefs and in religious rituals, symbolizing purification and sacredness. In some traditions, the coconut was compared to the human body—the shell as the skull, the fibers as hair, the eyes of the coconut as the eyes of a person—highlighting its deep spiritual significance. Certain coconut trees were considered kapu (sacred) and reserved for specific ceremonial use.
+        </p>
+        <h2>Niu and culture</h2>
+        <p>
+            Culturally, niu represented hospitality, sustainability, and ingenuity. It was a symbol of a well-prepared household—if you had coconut trees, you could provide for guests, build shelter, make tools, and offer medicine. Planting a coconut tree was an investment for future generations, as a single tree could provide resources for decades. Through niu, Native Hawaiians demonstrated their ability to live in harmony with the land and sea, transforming a single plant into food, shelter, art, medicine, and spiritual connection.
+        </p> 
+    </div>
+    <!-- side menu -->
+    <div class="off-screen-menu">
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="#">Plants</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../plants/index.html">Explore</a></li>
+                    <li><a href="#">Kalo</a></li>
+                    <li><a href="#">Ulu</a></li>
+                    <li><a href="#">Noni</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Coconut?scrlybrkr=7be9e41a">Niu</a></li>
+                    <li><a href="#">Kō</a></li>
+                </ul>
+            </li>
+            <!-- dropdown on click -->
+            <li class="dropdown">
+                <a href="#">About</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Our Mission</a></li>
+                    <li><a href="#">Team Members</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- search menu -->
+    <div class="off-screen-search">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search plants..." autocomplete="off">
+        </form>
+        <ul id="search-results"></ul>
+    </div>
+    <!-- navbar -->
+    <nav>
+        <!-- hamburger menu -->
+        <div class="nav-left">
+            <i class="search-icon highlight"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#a2a2a2"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/></svg></i>
+        </div>
+        <a href="../canoeHome/index.html" class="nav-logo"><img src="../canoeHome/punLogo.svg" alt="Punahou Logo"></a>
+        <div class="nav-right">
+            <div class="ham-menu highlight">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+
+        hamMenu.addEventListener('click', () => {
+            hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+            offScreenSearch.classList.remove('active');
+        })
+
+
+        const searchIcon = document.querySelector('.search-icon');
+        const offScreenSearch = document.querySelector('.off-screen-search');
+
+        searchIcon.addEventListener('click', () => {
+            searchIcon.classList.toggle('active');
+            offScreenSearch.classList.toggle('active');
+            hamMenu.classList.remove('active');
+            offScreenMenu.classList.remove('active');
+        })
+
+        let dataset = [];
+
+        // Load JSON on page load
+        fetch('plants.json')
+            .then(response => response.json())
+            .then(data => {
+                dataset = data;
+            });
+
+        const searchInput = document.getElementById('search-input');
+        const resultsList = document.getElementById('search-results');
+
+        // Listen for typing
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            resultsList.innerHTML = ""; // clear old results
+
+            if (query.length > 0) {
+                const filtered = dataset.filter(item =>
+                    item.name.toLowerCase().includes(query)
+                );
+
+                filtered.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.url;
+                    a.textContent = item.name;
+                    li.appendChild(a);
+                    resultsList.appendChild(li);
+                });
+            }
+        });       
+
+    
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+
+                if (e.target.closest('dropdown-menu')) {
+                    return;
+                }
+
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+                dropdown.classList.toggle('open');
+                dropdownMenu.classList.toggle('open');
+            });
+        });
+
+        const submenuLinks = document.querySelectorAll('.dropdown-menu a');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+            });
+        });
+            
+    </script>
+</body>
+</html>
