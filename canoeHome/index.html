@@ -80,7 +80,6 @@
         let dataset = [];
 
         // Load JSON on page load
-        fetch('plants.json')
         fetch('../commonAssets/plants.json')
             .then(response => response.json())
             .then(data => {
