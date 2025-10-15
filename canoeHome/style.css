@@ -313,6 +313,8 @@ h1{
     line-height: 1.5;
     text-shadow: black;
     text-shadow: 1px 1px 5px #1d1d1d;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
 }
 p{
     color: white;
