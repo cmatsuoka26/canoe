@@ -4,13 +4,24 @@
     box-sizing: border-box;
 }
 
-body {
-    min-height: 100vh;
+.header {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;      /* important */
+    overflow: hidden;        /* prevent background from sticking out */
+    height: 100vh;
+}
+
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120vh;           /* taller for smooth movement */
     background-image: url(taro.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    will-change: transform;  /* better performance */
+    z-index: -1;             /* behind everything */
 }
 
 /* button highlights */
@@ -298,32 +309,37 @@ nav a img {
     min-height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
     text-align: center;
     margin: 0 auto;
-    padding-top: 60vh;
+    padding-top: 40vh;
     transform: translateY(-25%);
+    color: white;
+}
+.center-content p{
+    font-size: 30px;
 }
 
 h1{
-    color: white;
     text-align: center;
     padding: 1rem;
+    max-width: 50vw;
     line-height: 1.5;
-    text-shadow: black;
-    text-shadow: 1px 1px 5px #1d1d1d;
-    font-size: 40px;
-    font-family: 'Times New Roman', Times, serif;
+    font-size: clamp(60px, 8vw, 100px);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-p{
-    color: white;
+.paragraph{
+    display: block;      /* or remove display entirely (default = block) */
+    margin: 0 auto;      /* centers the element horizontally */
+    max-width: 800px;    /* gives it a clean readable width */
+    color: black;
     text-align: center;
-    padding: 1rem;
-    line-height: 1.5;
+    align-items: center;
+    padding: 5rem;
+    line-height: 2.5;
     max-width: 90vw;
     font-size: larger;
-    text-shadow: 1px 1px 5px #1d1d1d;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 
