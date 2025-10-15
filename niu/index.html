@@ -39,13 +39,8 @@
         <ul class="menu">
             <li class="dropdown">
                 <a href="#">Plants</a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu" id="plants-dropdown">
                     <li><a href="../plants/index.html">Explore</a></li>
-                    <li><a href="#">Kalo</a></li>
-                    <li><a href="#">Ulu</a></li>
-                    <li><a href="#">Noni</a></li>
-                    <li><a href="https://en.wikipedia.org/wiki/Coconut?scrlybrkr=7be9e41a">Niu</a></li>
-                    <li><a href="#">Kō</a></li>
                 </ul>
             </li>
             <!-- dropdown on click -->
@@ -113,7 +108,22 @@
             .then(response => response.json())
             .then(data => {
                 dataset = data;
+                populatePlantsDropdown();
             });
+
+        function populatePlantsDropdown() {
+            const container = document.getElementById('plants-dropdown');
+            if (!container || !Array.isArray(dataset)) return;
+            dataset.forEach(item => {
+                if (!item || !item.name) return;
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = item.name;
+                a.href = item.url || '#';
+                li.appendChild(a);
+                container.appendChild(li);
+            });
+        }
 
         const searchInput = document.getElementById('search-input');
         const resultsList = document.getElementById('search-results');
@@ -144,15 +154,10 @@
 
         dropdowns.forEach(dropdown => {
             dropdown.addEventListener('click', (e) => {
-
-                if (e.target.closest('dropdown-menu')) {
-                    return;
-                }
-
+                if (e.target.closest('.dropdown-menu')) return;
                 const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-
                 dropdown.classList.toggle('open');
-                dropdownMenu.classList.toggle('open');
+                if (dropdownMenu) dropdownMenu.classList.toggle('open');
             });
         });
 
