@@ -24,6 +24,12 @@
     z-index: -1;             /* behind everything */
 }
 
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
 /* button highlights */
 .highlight {
     display: inline-flex;
