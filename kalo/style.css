@@ -11,6 +11,12 @@ body {
     background-position: center;
 }
 
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
 /* hero */
 .hero {
     display: flex;
@@ -52,15 +58,48 @@ header span {
     display: inherit;
 }
 
-/* body text */
-.paragraph {
-    position: relative;
-    margin-left: 50%;
-    transform: translateX(5%);
-    width: 40%; /* optional — controls how wide your text area is */
-    transform: translateY(3%);
-    padding-bottom: 5rem;
+/* iframe */
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
 }
+@media (min-width: 769px) {
+    .content-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .paragraph{
+        width: 40%;
+        padding-top: 5rem;
+        padding-left: 2rem;
+        padding-bottom: 5rem;
+    }
+    iframe{
+        width: 40%;
+        height: 800px;
+        padding-top: 8rem;
+        padding-right: 2rem;
+    }
+}
+/* Mobile: reverse the order */
+@media (max-width: 768px) {
+    .content-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .paragraph{
+        padding: 1rem;
+    }
+    iframe{
+        padding: 2rem;
+        width: 100%;
+        height: 600px;
+    }
+}
+
+/* body text */
 .paragraph p{
     line-height: 2;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
