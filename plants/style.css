@@ -174,43 +174,40 @@ nav {
     display: flex;
     flex-direction: column;
     min-height: 70vh; 
-    background: url("canoePlants.jpg") no-repeat center center/cover;
-    align-items: flex-start;
+    background: url("punKalo.jpg") no-repeat center center/cover;
     justify-content: center;
+    align-items: center;
     max-height: 400px;
     color: white;
 }
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 1rem;
-}
-.hero h1 {
-    display: inherit;
-    text-align: left;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    font-family: 'alata', sans-serif;
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    align-items: center;  /* centers child elements horizontally */
+    color: white;
+    padding: 1rem;
+    max-width: 90vw;
+}
+.hero-content h1 {
+    display: inherit;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
     letter-spacing: 3px;
 }
-.hero p {
+.hero-content p {
     display: inherit;
-    text-align: left;
-    flex-direction: column;
-    align-items: center;
     font-size: 1.5rem;
     line-height: 1.5;
-    font-family: 'Inter', sans-serif;
+    margin-top: 1rem;
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 header span {
     height: 4px;
-    width: 80px;
+    width: 90px;
     background-color: white;
     display: inherit;
-    transform: translateX(20%);
 }
 
 /* grid menu */
@@ -254,7 +251,16 @@ header span {
     left: 0;
     width: 100%;
     padding: 0.75rem 1rem;
-    background: #1e64b0;   
+
+    /* ✅ Frosted Glass Core */
+    background: rgba(255, 255, 255, 0.2); /* light transparent layer */
+    backdrop-filter: blur(10px);           /* <-- main blur */
+    -webkit-backdrop-filter: blur(10px);   /* Safari support */
+
+    /* ✅ Optional “glass” styling */
+    border-top: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    
     color: white;
 }
 .banner-title {
@@ -262,6 +268,7 @@ header span {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-family: 'Times New Roman', Times, serif;
 }
 .banner-body {
     font-size: 0.9rem;
@@ -600,22 +607,6 @@ nav a img {
     transform: translateY(-25%);
 }
 
-h1{
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    line-height: 1.5;
-    text-shadow: black;
-    text-shadow: 1px 1px 5px #1d1d1d;
-}
-p{
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    line-height: 1.5;
-    max-width: 90vw;
-    font-size: larger;
-    text-shadow: 1px 1px 5px #1d1d1d;
-}
+
 
 
