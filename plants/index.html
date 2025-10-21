@@ -185,6 +185,31 @@
                 e.stopPropagation(); 
             });
         });
+
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', function(e) {
+                e.preventDefault(); // stop immediate navigation
+                const link = box.getAttribute('href');
+
+                // Create ripple
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                const rect = box.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = rect.width / 2 - size / 2 + 'px';
+                ripple.style.top = rect.height / 2 - size / 2 + 'px';
+                box.appendChild(ripple);
+
+                // Trigger fade on body
+                document.body.classList.add('fade-out');
+
+                // Navigate after ripple + fade animation
+                setTimeout(() => {
+                    window.location.href = link;
+                }, 400); // matches fade-out duration
+            });
+        });
             
     </script>
 </body>
