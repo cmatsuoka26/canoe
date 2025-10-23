@@ -24,7 +24,7 @@
                 <li class="dropdown">
                     <a href="#">Plants</a>
                     <ul class="dropdown-menu" id="plants-dropdown">
-                        <li><a href="../plants/index.html">Explore</a></li>
+                        <li><a href="../canoe/plants/index.html">Explore</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -111,7 +111,7 @@
         let dataset = [];
 
         // Load JSON data
-        fetch('../commonAssets/plants.json')
+        fetch('../canoe/commonAssets/plants.json')
             .then(response => response.json())
             .then(data => {
                 dataset = data;
