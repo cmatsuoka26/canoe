@@ -218,21 +218,6 @@ header span {
     overflow: hidden;
     transition: transform 0.3s ease;
 }
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
-    background-color: rgba(255, 255, 255, 0.4);
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
 .box:hover{
     transform: scale(1.05); 
 }
@@ -267,13 +252,12 @@ header span {
     width: 100%;
     padding: 0.75rem 1rem;
 
-    /* ✅ Frosted Glass Core */
-    background: rgba(255, 255, 255, 0.2); /* light transparent layer */
+    /* Frosted Glass Styling */
+    background: rgba(31, 69, 110, 0.2); /* light transparent layer */
     backdrop-filter: blur(10px);           /* <-- main blur */
     -webkit-backdrop-filter: blur(10px);   /* Safari support */
 
-    /* ✅ Optional “glass” styling */
-    border-top: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
     
     color: white;
@@ -327,6 +311,29 @@ header span {
     background-size: cover;
     background-position: center;  
     background-repeat: no-repeat;
+}
+
+/* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple-effect 0.6s linear;
+    pointer-events: none;
+    z-index: 2;
+}
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Page fade-out */
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 /* button highlights */
