@@ -273,6 +273,7 @@ header span {
     font-size: 0.9rem;
     font-weight: normal;
     margin-top: 0.25rem;
+    max-width: 90%;
 }
 .banner-icon {
     position: absolute;
