@@ -150,7 +150,7 @@ header span {
 
 /* search menu styling */
 .off-screen-search {
-    background-image: url(ohiaBG.jpg);
+    background-image: url(../ohiaBG.jpg);
     background-size: cover;
     opacity: 0.5;
     height: 100vh;
