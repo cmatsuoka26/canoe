@@ -208,8 +208,11 @@
             });
         });
 
-        window.addEventListener('DOMContentLoaded', () => {
-            document.body.classList.add('fade-in');
+        window.addEventListener('pageshow', (event) => {
+            // Remove fade-out when navigating back/forward through history
+            if (event.persisted || performance.getEntriesByType('navigation')[0].type === 'back_forward') {
+                document.body.classList.remove('fade-out');
+            }
         });
             
     </script>
