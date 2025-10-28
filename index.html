@@ -24,14 +24,14 @@
                 <li class="dropdown">
                     <a href="#">Plants</a>
                     <ul class="dropdown-menu" id="plants-dropdown">
-                        <li><a href="/plants/index.html">Explore</a></li>
+                        <li><a href="plants/index.html">Explore</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#">About</a>
                     <ul class="dropdown-menu">
-                        <li><a href="../ourMission/index.html">Our Mission</a></li>
-                        <li><a href="../teamMemebers/index.html">Team Memebers</a></li>
+                        <li><a href="ourMission/index.html">Our Mission</a></li>
+                        <li><a href="teamMemebers/index.html">Team Memebers</a></li>
                         <li><a href="#">FAQs</a></li>
                     </ul>
                 </li>
@@ -53,7 +53,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#a2a2a2"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/></svg>
                 </i>
             </div>
-            <a href="#" class="nav-logo no-select"><img src="/commonAssets/punLogo.svg" alt="Punahou Logo"></a>
+            <a href="#" class="nav-logo no-select"><img src="commonAssets/punLogo.svg" alt="Punahou Logo"></a>
             <div class="nav-right">
                 <div class="ham-menu highlight">
                     <span></span>
@@ -98,7 +98,7 @@
         let dataset = [];
 
         // Load JSON data
-        fetch('/commonAssets/plants.json')
+        fetch('commonAssets/plants.json')
             .then(response => response.json())
             .then(data => {
                 dataset = data;
