@@ -3,30 +3,30 @@
         "name": "noni",
         "other_names": [ "Indian mulberry", "Morinda citrifolia" ],
         "howto": "Fruit can be eaten raw or cooked.",
-        "url": "../noni/index.html"
+        "url": "/noni/index.html"
     },
     {
         "name": "ulu",
         "other_names": [ "breadfruit", "Artocarpus altilis" ],
         "howto": "Large fruit eaten and made into poi. Sweet dishes can be made from ulu and niu cream.",
-        "url": "../ulu/index.html"
+        "url": "/ulu/index.html"
     },
     {
         "name": "kalo",
         "other_names": [ "taro", "Colocasia esculenta" ],
         "howto": "Used for Poi production. Poi is made through steaming the corm, mashing it, and adding water.",
-        "url": "../kalo/index.html"
+        "url": "/kalo/index.html"
     },
     {
         "name": "niu",
         "other_names": [ "ololani", "coconut", "Cocos nucifera" ],
         "howto": "Niu water used as a drink, and flesh eaten raw or with poi",
-        "url": "../niu/index.html"
+        "url": "/niu/index.html"
     },
     {
         "name": "kō",
         "other_names": [ "sugarcane", "Saccharum officinarum" ],
         "howto": "Normally a condiment, in times of famine a 'life saver'",
-        "url": "../ko/index.html"
+        "url": "/ko/index.html"
     }
 ]
