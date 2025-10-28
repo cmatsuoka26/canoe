@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canoe Planter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  .contact-dropdown li a {
+    font-size: 0.4em !important;
+  }
+</style>
+<body>
+    <!-- hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Our Mission</h1>
+            <span></span>
+            <p>From farm to classroom.</p>
+        </div>
+    </header>
+    <!-- text -->
+    <div class="paragraph">
+        <h2>The Dream</h2>
+        <p>
+            We are eight seniors from Punahou School in Hawai‘i working together in Ke Kilohana, our capstone computer science course. Each of us brings different experiences and coding skills to the table. This project is both a graduation requirement and a chance to apply what we’ve learned throughout our highschool careers to real life. By combining technology with sustainability, we hope to design an augmented reality kalo garden bed that connects innovation with tradition and creates lasting resources for future students.
+        </p> 
+    </div>
+    <!-- side menu -->
+    <div class="off-screen-menu">
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="#">Plants</a>
+                <ul class="dropdown-menu" id="plants-dropdown">
+                    <li><a href="../plants/index.html">Explore</a></li>
+                </ul>
+            </li>
+            <!-- dropdown on click -->
+            <li class="dropdown">
+                <a href="#">About</a>
+                <ul class="dropdown-menu">
+                    <li><a href="../ourMission/index.html">Our Mission</a></li>
+                    <li><a href="../teamMemebers/index.html">Team Memebers</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Contact</a>
+                <ul class="dropdown-menu contact-dropdown"> 
+                    <li><a href="#">dlin26@punahou.edu</a></li>
+                    <li><a href="#">cmatsuoka26@punahou.edu</a></li>
+                    <li><a href="#">lbaldwin26@punahou.edu</a></li>
+                    <li><a href="#">dfalzarano26@punahou.edu</a></li>
+                    <li><a href="#">rhayashi26@punahou.edu</a></li>
+                    <li><a href="#">gchung26@punahou.edu</a></li>
+                    <li><a href="#">preppun26@punahou.edu</a></li>
+                    <li><a href="#">ahultstrom26@punahou.edu</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- search menu -->
+    <div class="off-screen-search">
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Search plants..." autocomplete="off">
+        </form>
+        <ul id="search-results"></ul>
+    </div>
+    <!-- navbar -->
+    <nav>
+        <!-- hamburger menu -->
+        <div class="nav-left">
+            <i class="search-icon highlight"><svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#a2a2a2"><path d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"/></svg></i>
+        </div>
+        <a href="../canoeHome/index.html" class="nav-logo"><img src="../commonAssets/punLogo.svg" alt="Punahou Logo"></a>
+        <div class="nav-right">
+            <div class="ham-menu highlight">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const hamMenu = document.querySelector('.ham-menu');
+        const offScreenMenu = document.querySelector('.off-screen-menu');
+
+        hamMenu.addEventListener('click', () => {
+            hamMenu.classList.toggle('active');
+            offScreenMenu.classList.toggle('active');
+            offScreenSearch.classList.remove('active');
+        })
+
+
+        const searchIcon = document.querySelector('.search-icon');
+        const offScreenSearch = document.querySelector('.off-screen-search');
+
+        searchIcon.addEventListener('click', () => {
+            searchIcon.classList.toggle('active');
+            offScreenSearch.classList.toggle('active');
+            hamMenu.classList.remove('active');
+            offScreenMenu.classList.remove('active');
+        })
+
+        let dataset = [];
+
+        // Load JSON on page load
+        fetch('../commonAssets/plants.json')
+            .then(response => response.json())
+            .then(data => {
+                dataset = data;
+                populatePlantsDropdown();
+            });
+
+        function populatePlantsDropdown() {
+            const container = document.getElementById('plants-dropdown');
+            if (!container || !Array.isArray(dataset)) return;
+            dataset.forEach(item => {
+                if (!item || !item.name) return;
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.textContent = item.name;
+                a.href = item.url || '#';
+                li.appendChild(a);
+                container.appendChild(li);
+            });
+        }
+
+        const searchInput = document.getElementById('search-input');
+        const resultsList = document.getElementById('search-results');
+
+        // Listen for typing
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            resultsList.innerHTML = ""; // clear old results
+
+            if (query.length > 0) {
+                const filtered = dataset.filter(item =>
+                    item.name.toLowerCase().includes(query)
+                );
+
+                filtered.forEach(item => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = item.url;
+                    a.textContent = item.name;
+                    li.appendChild(a);
+                    resultsList.appendChild(li);
+                });
+            }
+        });       
+
+    
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                if (e.target.closest('.dropdown-menu')) return;
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                dropdown.classList.toggle('open');
+                if (dropdownMenu) dropdownMenu.classList.toggle('open');
+            });
+        });
+
+        const submenuLinks = document.querySelectorAll('.dropdown-menu a');
+        submenuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+            });
+        });
+            
+    </script>
+</body>
+</html>
