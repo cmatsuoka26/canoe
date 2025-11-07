@@ -79,13 +79,43 @@ body {
       -4px -4px 8px #efefef;
     transition: all 0.3s ease;
     z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers horizontally */
+    justify-content: flex-start; /* keeps content at top */
+    padding-top: 2.5rem;
 }
-  
 .box:hover {
-    transform: translateY(-15px) scale(1.05);
+    transform: translateY(-10px);
     box-shadow:
         5px 5px 10px #bcbcbc,
         -5px -5px 10px #efefef;
+}
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: #efefef; /* fallback color if no image */
+}
+.name {
+    font-size: large;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 1rem;
+}
+.position {
+    font-size: small;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #bcbcbc;
+}
+.description {
+    padding: 2rem;
+    text-align: center;
+}
+.contact {
+    font-size: small;
 }
 
 /* button highlights */
