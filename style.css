@@ -351,5 +351,20 @@ h1{
     font-size: larger;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+@media (max-width: 600px) {
+    h1 {
+        max-width: 80vw; /* instead of 50vw */
+        font-size: clamp(40px, 10vw, 60px); 
+    }
 
+    .center-content {
+        padding-top: 20vh; /* reduced for small screens */
+        transform: none;   /* removes drifting effect */
+    }
+
+    .paragraph {
+        padding: 2rem;   /* smaller padding */
+        max-width: 95vw;
+    }
+}
 
