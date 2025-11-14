@@ -236,14 +236,14 @@ header span {
 @media(max-width: 56em){
     .grid-container{
         padding: 10vw;
-        grid-auto-columns: 12em;
+        grid-auto-columns: 85vw;
         grid-auto-rows: 12em;
         grid-template-areas: 
-        "box-1 box-1"
-        "box-2 box-2"
-        "box-3 box-3"
-        "box-4 box-4"
-        "box-5 box-5";
+        "box-1"
+        "box-2"
+        "box-3"
+        "box-4"
+        "box-5";
     }
 }
 .banner {
