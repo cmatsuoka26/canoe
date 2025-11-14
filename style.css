@@ -354,14 +354,13 @@ h1{
 @media (max-width: 600px) {
     h1 {
         max-width: 80vw; /* instead of 50vw */
-        font-size: clamp(40px, 10vw, 60px); 
-    }
+        font-size: clamp(40px, 15vw, 60px); 
 
+    }
     .center-content {
         padding-top: 20vh; /* reduced for small screens */
         transform: none;   /* removes drifting effect */
     }
-
     .paragraph {
         padding: 2rem;   /* smaller padding */
         max-width: 95vw;
