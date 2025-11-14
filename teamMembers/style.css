@@ -37,6 +37,12 @@ body {
     margin-bottom: 1.5rem;
     letter-spacing: 3px;
 }
+@media (max-width: 600px) {
+    h1 {
+        max-width: 90vw; /* instead of 50vw */
+        font-size: clamp(40px, 10vw, 60px); 
+    }
+}
 .hero-content p {
     display: inherit;
     font-size: 1.5rem;
@@ -84,7 +90,6 @@ body {
         "box-8";
     }
 }
-
   
 .box {
     background: white;
