@@ -235,6 +235,7 @@ header span {
 }
 @media(max-width: 56em){
     .grid-container{
+        width: 85vw;
         padding: 1rem;
         grid-auto-columns: 12em;
         grid-auto-rows: 12em;
