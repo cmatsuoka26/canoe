@@ -343,7 +343,7 @@ h1{
     margin: 0 auto;      /* centers the element horizontally */
     max-width: 800px;    /* gives it a clean readable width */
     color: black;
-    text-align: center;
+    text-align: justify;
     align-items: center;
     padding: 5rem;
     line-height: 2.5;
