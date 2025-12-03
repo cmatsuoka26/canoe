@@ -97,7 +97,6 @@
     opacity: 0.5;
     height: 100vh;
     width: 100%;
-    max-width: 1500px;
     position: fixed;
     top: 0;
     transform: translateX(-100%);
@@ -309,14 +308,12 @@ nav a img {
 
 /* text styling */
 .center-content{
-    height: 90vh;
-    width: 80vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     margin: 0 auto;
-    padding-top: 35vh;
+    padding-top: 40vh;
     transform: translateY(-25%);
     color: white;
 }
@@ -330,7 +327,7 @@ h1{
     padding: 1rem;
     max-width: 50vw;
     line-height: 1.5;
-    font-size: 7em;
+    font-size: 15dvh;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
     font-style: normal;
